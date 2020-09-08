@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Check current weather for 200k Cities!</h1>
+<div class="form-container">
+    <form action="{{url_for('weather')}}" method="post">
+        <input type="text" name="user_city" placeholder="Type any city here...">
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+<p>{{ weather.city }}</p>
+<p>{{ weather.temperature }} °C</p>
+<p>{{ weather.description }}</p>
+<img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="weather" />
+
+{% endblock body %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Check current weather for 200k Cities!</h1>
+<div class="form-container">
+    <form action="{{url_for('weather')}}" method="post">
+        <input type="text" name="user_city" placeholder="Type any city here...">
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+
+{% endblock body %}
