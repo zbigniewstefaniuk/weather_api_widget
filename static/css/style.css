@@ -12,6 +12,8 @@ html {
           align-items: center;
   justify-items: center;
   --bg: #fcfcfc;
+  --color-headings: #0077ff;
+  --shadows: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
 }
 
 body {
@@ -19,5 +21,52 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   padding-bottom: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 2em;
+  color: var(--color-headings);
+  -webkit-box-shadow: var(--shadows);
+          box-shadow: var(--shadows);
+  border-radius: 10px;
+}
+
+p {
+  text-align: center;
+  color: #2d353d;
+  grid-area: content;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  margin-top: 1em;
+}
+
+.main-container {
+  text-align: center;
+  -webkit-box-shadow: var(--shadows);
+          box-shadow: var(--shadows);
+  border-radius: 10px;
+}
+
+.form-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  padding: 2em;
+}
+
+.weather-main {
+  justify-items: center;
+  width: auto;
+}
+
+.weather-panel-show {
+  overflow: hidden;
+}
+
+.city-weather {
+  right: 0;
 }
 /*# sourceMappingURL=style.css.map */
