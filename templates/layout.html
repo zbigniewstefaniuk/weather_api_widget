@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Zbigniew Stefaniuk">
+  <meta name="description" content="Stay positive with best Weather! Check 200 000 cities around the world! ">
+  <meta property="og:title" content="The Weather app to you!">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" />
   <script src="{{ url_for('static', filename='main.js') }}"></script>
   <title>{% block title %}Weather App {% endblock %}</title>
@@ -16,6 +19,16 @@
     {% endblock body %}
   </div>
   <!-- End of main content  -->
+
+  <!-- This is footer  -->
+  <div class="footer-main">
+    <div class="footer-inside">
+      made by zayyn
+    </div>
+  </div>
+  <!-- End of footer  -->
+
+  <!-- Custom JavaScript  -->
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 
