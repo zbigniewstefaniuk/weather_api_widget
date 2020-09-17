@@ -1,0 +1,217 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat';
+  display: flex;
+  //flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-items: center;
+  --bg: #fcfcfc;
+  --color-headings: #474E55;
+  --shadows: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+  --h2-text: #2d353d;
+  --corners: 10px;
+  --info-padding: .5em;
+  --color-ready: #23292F;
+}
+
+
+body {
+  background-color: var(--bg);
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-bottom: 2rem;
+}
+
+h1 {
+  // this one is for big headers
+  text-align: center;
+  margin: 0;
+  padding: 2em;
+  color: var(--color-headings);
+  box-shadow: var(--shadows);
+  border-radius: var(--corners);
+}
+
+h2 {
+  color: var(--h2-text);
+  font-weight: 800;
+  font-size: 2em;
+  //letter-spacing: 0.05em;
+}
+
+p {
+  text-align: center;
+  color: var(--h2-text);
+  grid-area: content;
+  font-size: 2em;
+  line-height: 1.2em;
+  margin-top: 1em;
+
+}
+
+p2 {
+  text-align: center;
+  color: var(--h2-text);
+  grid-area: content;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin-top: 1em;
+
+}
+
+.main-container {
+  text-align: center;
+  box-shadow: var(--shadows);
+  border-radius: var(--corners);
+}
+
+#weather-app {
+  background-color: #EBEBEB;
+  border-radius: var(--corners);
+}
+
+.form-container {
+  justify-content: center;
+  margin: auto;
+  padding: 1em;
+}
+
+// WEATHER INFO DIVS 
+.weather-main {
+  overflow: hidden;
+  padding: 0 2em;
+  //display: inline-flex;
+  justify-content: center;
+  width: auto;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.city-info {
+  justify-content: center;
+  float: left;
+  margin: 1rem;
+}
+
+.city-weather {
+  right: 0;
+}
+
+.weather-description {}
+
+.time {
+  text-align: start;
+  padding: var(--info-padding);
+}
+
+.humidity {
+  text-align: start;
+  padding: var(--info-padding);
+}
+
+.wind-speed {
+  text-align: start;
+  padding: var(--info-padding);
+}
+
+.weather-panel-show {
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.weather-temperature {
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.weather-icon {
+  margin-top: 5em;
+  padding: 0 0 0 1em;
+}
+
+
+// NICE INPUT
+.input {
+  padding: 9px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: var(--corners);
+  width: 350px;
+  text-align: center;
+
+}
+
+.input:focus {
+  outline: none;
+}
+
+// BUTTON SEND 
+.btn {
+  padding: 10px;
+}
+
+.btn-submit {
+  //display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--corners);
+  background-color: var(--color-headings);
+  border: none;
+  color: var(--bg);
+  padding: 6px 25px;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+
+}
+
+// WEATHER FORECAST
+
+.forecast-weather {
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.forecast-weather>div {
+  float: left;
+}
+
+
+// FOOTER
+.footer-main {
+  overflow: hidden;
+  position: fixed;
+  align-items: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 1.2em;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--rooms-txt);
+  text-align: center;
+  box-shadow: var(--shadows);
+  width: 100%;
+  background-color: #2d353d;
+  color: #fcfcfc;
+}
+
+.footer-inside {
+  align-items: center;
+  text-align: center;
+}
