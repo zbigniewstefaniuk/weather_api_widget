@@ -3,31 +3,90 @@
 {% block title %}Weather in {{ weather.city }} {% endblock %}
 
 {% block body %}
-<h1>Check current weather for 200k Cities!</h1>
-<div class="form-container">
-    <form action="{{url_for('index')}}" id="form" method="post">
-        <input type="text" name="user_city" placeholder="Type any city here...">
-        <input type="submit" value="Send">
-    </form>
-</div>
-<div class="weather-main">
+<div id="weather-app">
+    <h1>Check current weather for 200k Cities!</h1>
+    <!-- User Input From  -->
+    <div class="form-container">
 
-    <div class="city-weather">
-        <h2>{{ weather.city }}</h2>
+        <form action="{{url_for('index')}}" id="form" method="post">
+            <p>Type any city below</p>
+
+            <div class="">
+                <input class="input" type="text" name="user_city" required autofocus>
+            </div>
+            <div class="btn">
+                <input class="btn-submit" type="submit" value="Check">
+            </div>
+
+        </form>
     </div>
-    <div class="weather-description">
-        <p>{{ weather.description }}</p>
-    </div>
-    <div class="weather-panel-show">
-        <div class="weather-temperature">
-            <p>{{ temp }} °C</p>
+    <!-- End of Form  -->
+    <div class="weather-main">
+
+        <div class="city-info">
+            <div class="city-weather">
+                <h2>{{ weather.city }}</h2>
+            </div>
+
+            <div class="time">
+                <p2>{{ time }}</p2>
+            </div>
+
+            <div class="humidity">
+                <p2>Humidity: {{ weather.humidity }}%</p2>
+            </div>
+            <div class="wind-speed">
+                <p2>Wind: {{weather.wind}} km/h</p2>
+
+            </div>
+
+        </div>
+        <div class="weather-panel-show">
+            <div class="weather-temperature">
+                <p>{{ temp }}°C</p>
+            </div>
+
+            <div class="weather-icon">
+                <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="weather" />
+            </div>
+        </div>
+        <div class="weather-description">
+            <p>{{ weather.description }}</p>
         </div>
 
-        <div class="weather-icon">
+
+    </div>
+    <!-- Forecast for 5 Days -->
+    <div class="forecast-weather">
+        <div class="first-day">
             <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="weather" />
+            <p3>{{ day_forecast[0]['date'][5:10] }}</p3>
+            <p3>{{ day_forecast[0].temp |round|int}}°C</p3>
+            <p3>{{ night_forecast[0].temp |round|int }}°C</p3>
+        </div>
+        <div class="second-day">
+            <img src="http://openweathermap.org/img/w/{{ day_forecast[0]['icon'] }}.png" alt="weather" />
+            <p3>{{ day_forecast[1]['date'][5:10] }}</p3>
+            <p3>{{ day_forecast[1].temp |round|int }}°C</p3>
+            <p3>{{ night_forecast[1].temp |round|int }}°C</p3>
+        </div>
+        <div class="third-day">
+            <p3>{{ day_forecast[2]['date'][5:10] }}</p3>
+            <p3>{{ day_forecast[2].temp |round|int }}°C</p3>
+            <p3>{{ night_forecast[2].temp |round|int }}°C</p3>
+        </div>
+        <div class="fourth-day">
+            <p3>{{ day_forecast[3]['date'][5:10] }}</p3>
+            <p3>{{ day_forecast[3].temp |round|int }}°C</p3>
+            <p3>{{ night_forecast[3].temp |round|int }}°C</p3>
+        </div>
+        <div class="fifth-day">
+            <p3>{{ day_forecast[4]['date'][5:10] }}</p3>
+            <p3>{{ day_forecast[4].temp |round|int }}°C</p3>
+            <p3>{{ night_forecast[4].temp |round|int }}°C</p3>
         </div>
     </div>
-
-
+    <!--End of forecast -->
 </div>
+
 {% endblock body %}
