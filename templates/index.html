@@ -59,29 +59,42 @@
     <!-- Forecast for 5 Days -->
     <div class="forecast-weather">
         <div class="first-day">
-            <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="weather" />
-            <p3>{{ day_forecast[0]['date'][5:10] }}</p3>
+            <div class="icon-forecast">
+                <img src="http://openweathermap.org/img/w/{{ day_forecast[0]['icon'] }}.png" alt="weather" />
+            </div>
+            <p3>{{ day_forecast[0]['date'][5:10] }}/</p3>
             <p3>{{ day_forecast[0].temp |round|int}}°C</p3>
             <p3>{{ night_forecast[0].temp |round|int }}°C</p3>
         </div>
         <div class="second-day">
-            <img src="http://openweathermap.org/img/w/{{ day_forecast[0]['icon'] }}.png" alt="weather" />
-            <p3>{{ day_forecast[1]['date'][5:10] }}</p3>
+            <div class="icon-forecast">
+                <img src="http://openweathermap.org/img/w/{{ day_forecast[1]['icon'] }}.png" alt="weather" />
+            </div>
+            <p3>{{ day_forecast[1]['date'][5:10] }}/</p3>
             <p3>{{ day_forecast[1].temp |round|int }}°C</p3>
             <p3>{{ night_forecast[1].temp |round|int }}°C</p3>
         </div>
         <div class="third-day">
-            <p3>{{ day_forecast[2]['date'][5:10] }}</p3>
+            <div class="icon-forecast">
+                <img src="http://openweathermap.org/img/w/{{ day_forecast[2]['icon'] }}.png" alt="weather" />
+            </div>
+            <p3>{{ day_forecast[2]['date'][5:10] }}/</p3>
             <p3>{{ day_forecast[2].temp |round|int }}°C</p3>
             <p3>{{ night_forecast[2].temp |round|int }}°C</p3>
         </div>
         <div class="fourth-day">
-            <p3>{{ day_forecast[3]['date'][5:10] }}</p3>
+            <div class="icon-forecast">
+                <img src="http://openweathermap.org/img/w/{{ day_forecast[3]['icon'] }}.png" alt="weather" />
+            </div>
+            <p3>{{ day_forecast[3]['date'][5:10] }}/</p3>
             <p3>{{ day_forecast[3].temp |round|int }}°C</p3>
             <p3>{{ night_forecast[3].temp |round|int }}°C</p3>
         </div>
         <div class="fifth-day">
-            <p3>{{ day_forecast[4]['date'][5:10] }}</p3>
+            <div class="icon-forecast">
+                <img src="http://openweathermap.org/img/w/{{ day_forecast[4]['icon'] }}.png" alt="weather" />
+            </div>
+            <p3>{{ day_forecast[4]['date'][5:10] }}/</p3>
             <p3>{{ day_forecast[4].temp |round|int }}°C</p3>
             <p3>{{ night_forecast[4].temp |round|int }}°C</p3>
         </div>
