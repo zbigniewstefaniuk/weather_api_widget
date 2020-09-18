@@ -14,6 +14,7 @@ html {
   --corners: 10px;
   --info-padding: .5em;
   --color-ready: #23292F;
+  --footer-img-filter: invert(91%) sepia(56%) saturate(1%) hue-rotate(15deg) brightness(106%) contrast(98%);
 }
 
 
@@ -180,6 +181,7 @@ p2 {
 
 .forecast-weather {
   overflow: hidden;
+  padding-bottom: 1em;
   justify-content: center;
   display: flex;
   justify-content: space-around;
@@ -187,6 +189,7 @@ p2 {
 
 .forecast-weather>div {
   float: left;
+  cursor: pointer;
 }
 
 
@@ -199,7 +202,7 @@ p2 {
   bottom: 0;
   left: 0;
   margin: 0;
-  padding: 1.2em;
+  padding: 0.8em;
   margin: auto;
   margin-left: auto;
   margin-right: auto;
@@ -212,6 +215,19 @@ p2 {
 }
 
 .footer-inside {
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.footer-inside > div {
+  float: left;
+}
+
+.github-icon {
+  height: 25px;
+  width: 25px;
+  margin-left: 1em;
+  filter: var(--footer-img-filter);
 }

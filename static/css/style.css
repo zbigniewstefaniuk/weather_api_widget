@@ -12,8 +12,13 @@ html {
           align-items: center;
   justify-items: center;
   --bg: #fcfcfc;
-  --color-headings: #0077ff;
+  --color-headings: #474E55;
   --shadows: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+  --h2-text: #2d353d;
+  --corners: 10px;
+  --info-padding: .5em;
+  --color-ready: #23292F;
+  --footer-img-filter: invert(91%) sepia(56%) saturate(1%) hue-rotate(15deg) brightness(106%) contrast(98%);
 }
 
 body {
@@ -30,14 +35,29 @@ h1 {
   color: var(--color-headings);
   -webkit-box-shadow: var(--shadows);
           box-shadow: var(--shadows);
-  border-radius: 10px;
+  border-radius: var(--corners);
+}
+
+h2 {
+  color: var(--h2-text);
+  font-weight: 800;
+  font-size: 2em;
 }
 
 p {
   text-align: center;
-  color: #2d353d;
+  color: var(--h2-text);
   grid-area: content;
-  font-size: 1.1em;
+  font-size: 2em;
+  line-height: 1.2em;
+  margin-top: 1em;
+}
+
+p2 {
+  text-align: center;
+  color: var(--h2-text);
+  grid-area: content;
+  font-size: 1.2em;
   line-height: 1.2em;
   margin-top: 1em;
 }
@@ -46,7 +66,12 @@ p {
   text-align: center;
   -webkit-box-shadow: var(--shadows);
           box-shadow: var(--shadows);
-  border-radius: 10px;
+  border-radius: var(--corners);
+}
+
+#weather-app {
+  background-color: #EBEBEB;
+  border-radius: var(--corners);
 }
 
 .form-container {
@@ -54,19 +79,175 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
   margin: auto;
-  padding: 2em;
+  padding: 1em;
 }
 
 .weather-main {
-  justify-items: center;
+  overflow: hidden;
+  padding: 0 2em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: auto;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.weather-panel-show {
-  overflow: hidden;
+.city-info {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  float: left;
+  margin: 1rem;
 }
 
 .city-weather {
   right: 0;
+}
+
+.time {
+  text-align: start;
+  padding: var(--info-padding);
+}
+
+.humidity {
+  text-align: start;
+  padding: var(--info-padding);
+}
+
+.wind-speed {
+  text-align: start;
+  padding: var(--info-padding);
+}
+
+.weather-panel-show {
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.weather-temperature {
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.weather-icon {
+  margin-top: 5em;
+  padding: 0 0 0 1em;
+}
+
+.input {
+  padding: 9px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: var(--corners);
+  width: 350px;
+  text-align: center;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.btn {
+  padding: 10px;
+}
+
+.btn-submit {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: var(--corners);
+  background-color: var(--color-headings);
+  border: none;
+  color: var(--bg);
+  padding: 6px 25px;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+}
+
+.forecast-weather {
+  overflow: hidden;
+  padding-bottom: 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.forecast-weather > div {
+  float: left;
+  cursor: pointer;
+}
+
+.footer-main {
+  overflow: hidden;
+  position: fixed;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0.8em;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--rooms-txt);
+  text-align: center;
+  -webkit-box-shadow: var(--shadows);
+          box-shadow: var(--shadows);
+  width: 100%;
+  background-color: #2d353d;
+  color: #fcfcfc;
+}
+
+.footer-inside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.footer-inside > div {
+  float: left;
+}
+
+.github-icon {
+  height: 25px;
+  width: 25px;
+  margin-left: 1em;
+  -webkit-filter: var(--footer-img-filter);
+          filter: var(--footer-img-filter);
 }
 /*# sourceMappingURL=style.css.map */
