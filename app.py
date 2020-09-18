@@ -51,7 +51,7 @@ def index():
 
     # gettiing dict with temperature, date and icon for forecast
     def day_forecast():
-        temp = []
+        temp_day = []
         for i in forecast_response['list']:
             foo = '12:00:00'
             if foo in i['dt_txt']:
@@ -60,11 +60,11 @@ def index():
                     'temp': i['main']['temp'],
                     'icon': i['weather'][0]['icon'],
                 }
-                temp.append(dictor)
-        return temp
+                temp_day.append(dictor)
+        return temp_day
 
     def night_forecast():
-        temp = []
+        temp_night = []
         for i in forecast_response['list']:
             foo = '03:00:00'
             if foo in i['dt_txt']:
@@ -72,13 +72,15 @@ def index():
                     'date': i['dt_txt'],
                     'temp': i['main']['temp'],
                 }
-                temp.append(dictor)
-        return temp
+                temp_night.append(dictor)
+        return temp_night
 
     day_forecast = day_forecast()
+    print(day_forecast)
+    print(night_forecast())
     night_forecast = night_forecast()
 
-    return render_template('index.html', weather=weather, temp=temp_int, time=time, day_forecast=night_forecast, night_forecast=night_forecast)
+    return render_template('index.html', weather=weather, temp=temp_int, time=time, day_forecast=day_forecast, night_forecast=night_forecast)
 
 
 if __name__ == '__main__':
