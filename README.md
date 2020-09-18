@@ -1,7 +1,7 @@
-<h1>Weather Forecast widget implemented using Flask
+<h1 align="center">Weather Forecast widget implemented using Flask
 </h1>
 
-<p> App is still in development
+<p style="text-align:center;"> App is still in development
 </p>
 
 <p align="center">
