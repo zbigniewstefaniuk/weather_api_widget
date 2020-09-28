@@ -146,6 +146,16 @@ p2 {
   padding: 0 0 0 1em;
 }
 
+.hour_forecast_daily {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .input {
   padding: 9px;
   font-size: 16px;
