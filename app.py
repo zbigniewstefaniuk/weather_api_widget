@@ -76,7 +76,7 @@ def index():
         return temp_night
 
     day_forecast = day_forecast()
-    print(night_forecast())
+
     night_forecast = night_forecast()
 
     return render_template('index.html', weather=weather, temp=temp_int, time=time, day_forecast=day_forecast, night_forecast=night_forecast)
@@ -120,13 +120,29 @@ def city_forecast(city, date):
                 temp_hour.append(dictor)
         return temp_hour
 
-    time = strftime('%A %H:%M', localtime())
-    temp_float = weather.get('temperature')
-    temp_int = round(temp_float)
-
     hour_day_forecast = hour_day_forecast()
 
-    return render_template('city_forecast.html', weather=weather, temp=temp_int, time=time, hour_forecast=hour_day_forecast)
+    def forecast_hours():
+        hour_lst = []
+        for hour in hour_day_forecast:
+            hour_lst.append(hour['date'][11:16])
+        return hour_lst
+
+    forecast_hours = forecast_hours()
+
+    def forecast_temperatures():
+        temps_lst = []
+        for temper in hour_day_forecast:
+            rounded_temp = round(temper['temp'], 1)
+            temps_lst.append(str(rounded_temp) + ' °C')
+        return temps_lst
+
+    forecast_temperatures = forecast_temperatures()
+
+    time = strftime('%A %H:%M', localtime())
+
+
+    return render_template('city_forecast.html',date=date, weather=weather, time=time, forecast_hours=forecast_hours, forecast_temperatures=forecast_temperatures)
 
 
 if __name__ == '__main__':
