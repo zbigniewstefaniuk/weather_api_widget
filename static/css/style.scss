@@ -12,7 +12,7 @@ html {
   --shadows: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
   --h2-text: #2d353d;
   --corners: 10px;
-  --info-padding: .5em;
+  --info-padding: .8em;
   --color-ready: #23292F;
   --footer-img-filter: invert(91%) sepia(56%) saturate(1%) hue-rotate(15deg) brightness(106%) contrast(98%);
 }
@@ -39,7 +39,7 @@ h2 {
   color: var(--h2-text);
   font-weight: 800;
   font-size: 2em;
-  //letter-spacing: 0.05em;
+  letter-spacing: 0.05em;
 }
 
 p {
@@ -66,6 +66,7 @@ p2 {
   text-align: center;
   box-shadow: var(--shadows);
   border-radius: var(--corners);
+  align-items: center;
 }
 
 #weather-app {
@@ -81,7 +82,7 @@ p2 {
 
 // WEATHER INFO DIVS 
 .weather-main {
-  overflow: hidden;
+  //overflow: hidden;
   padding: 0 2em;
   //display: inline-flex;
   justify-content: center;
@@ -128,7 +129,6 @@ p2 {
 .weather-temperature {
   font-weight: 600;
   font-size: 2rem;
-  margin: 1rem;
 }
 
 .weather-icon {
@@ -140,12 +140,10 @@ p2 {
 
 // HOUR FORCAST
 
-.hour_forecast_daily {
-  display: flex;
-  flex-direction: column;
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
 }
-
-
 
 
 
@@ -234,7 +232,7 @@ p2 {
   text-align: center;
 }
 
-.footer-inside > div {
+.footer-inside>div {
   float: left;
 }
 

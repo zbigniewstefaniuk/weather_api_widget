@@ -16,7 +16,7 @@ html {
   --shadows: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
   --h2-text: #2d353d;
   --corners: 10px;
-  --info-padding: .5em;
+  --info-padding: .8em;
   --color-ready: #23292F;
   --footer-img-filter: invert(91%) sepia(56%) saturate(1%) hue-rotate(15deg) brightness(106%) contrast(98%);
 }
@@ -42,6 +42,7 @@ h2 {
   color: var(--h2-text);
   font-weight: 800;
   font-size: 2em;
+  letter-spacing: 0.05em;
 }
 
 p {
@@ -67,6 +68,9 @@ p2 {
   -webkit-box-shadow: var(--shadows);
           box-shadow: var(--shadows);
   border-radius: var(--corners);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #weather-app {
@@ -83,7 +87,6 @@ p2 {
 }
 
 .weather-main {
-  overflow: hidden;
   padding: 0 2em;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -138,7 +141,6 @@ p2 {
 .weather-temperature {
   font-weight: 600;
   font-size: 2rem;
-  margin: 1rem;
 }
 
 .weather-icon {
@@ -146,14 +148,9 @@ p2 {
   padding: 0 0 0 1em;
 }
 
-.hour_forecast_daily {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
 }
 
 .input {
