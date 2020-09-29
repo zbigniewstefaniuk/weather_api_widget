@@ -9,6 +9,26 @@
   <meta property="og:title" content="The Weather app to you!">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" />
   <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+  <script>
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+      )
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
   <title>{% block title %}Weather App {% endblock %}</title>
 </head>
 

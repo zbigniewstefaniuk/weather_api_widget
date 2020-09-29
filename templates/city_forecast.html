@@ -7,7 +7,7 @@ Forecast for {{ weather.city }}
 
 {% block body %}
 <div id="weather-app">
-    <h1>Check current weather for 200k Cities!</h1>
+    <h1>Check below current weather conditions for date: {{date}} and hourly forecast!</h1>
     <!-- User Input From  -->
     <div class="form-container">
 
@@ -25,11 +25,12 @@ Forecast for {{ weather.city }}
     </div>
     <!-- End of Form  -->
     <div class="weather-main">
-
-        <div class="city-info">
+        
             <div class="city-weather">
                 <h2>{{ weather.city }}</h2>
             </div>
+
+        <div class="city-info">
 
             <div class="time">
                 <p2>{{ time }}</p2>
@@ -42,23 +43,57 @@ Forecast for {{ weather.city }}
                 <p2>Wind: {{weather.wind}} km/h</p2>
 
             </div>
-
-        </div>
-        <div class="hour_forecast_daily">
-            <p3>Godzina / Temperatura</p3>
-
-            {% for hour in hour_forecast %}
             <div>
-                <p3>{{ hour['date'][11:16] }} - </p3>
-                <p3>{{ hour.temp |round|int }}°C</p3>
-                <hr>
+                <p2></p2>
             </div>
-            {% endfor %}
+
         </div>
 
+    <div id="chart"> </div>
 
     </div>
 
+    
 </div>
 
+<!-- Chart display Script -->
+<script>
+    var myHours = {{ forecast_hours | tojson }};
+    var myTemperatures = {{ forecast_temperatures | tojson }};
+    var options = {
+        series: [{
+            name: "Temperature",
+            data: myTemperatures
+        }],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Temperature over hours',
+            align: 'left'
+        },
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            },
+        },
+        xaxis: {
+            categories: myHours,
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+</script>
 {% endblock body %}
