@@ -11,9 +11,11 @@
     <div class="form-container">
 
         <form action="{{url_for('index')}}" id="form" method="post">
-            <p>Type any city below</p>
+            <div class="before-form">
+                <p5>Type any city below</p5>
+            </div>
 
-            <div class="">
+            <div>
                 <input class="input" type="text" name="user_city" required autofocus>
             </div>
             <div class="btn">
@@ -29,37 +31,39 @@
 
         <div class="city-weather">
             <h2>{{ weather.city }}</h2>
+            <div class="weather-panel-show">
+                <!-- DIV that contains info about: Time, humidity, Wind -->
+                <div class="city-info">
+
+                    <div class="time">
+                        <p2>{{ time }}</p2>
+                    </div>
+
+                    <div class="humidity">
+                        <p2>Humidity: {{ weather.humidity }}%</p2>
+                    </div>
+                    <div class="wind-speed">
+                        <p2>Wind: {{weather.wind}} km/h</p2>
+                    </div>
+
+                </div>
+
+                <div class="weather-temperature">
+                    <p4>{{ temp }}°C</p4>
+                </div>
+                <!-- This icon is display from openweather.com server i tried to scale it up,
+                     but it lose too much quality so I left it as it is -->
+                <div class="weather-icon">
+                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="weather" />
+                </div>
+
+            </div>
+
+            <div class="weather-description">
+                <p5>{{ weather.description }}</p5>
+            </div>
+
         </div>
-
-        <div class="city-info">
-
-
-            <div class="time">
-                <p2>{{ time }}</p2>
-            </div>
-
-            <div class="humidity">
-                <p2>Humidity: {{ weather.humidity }}%</p2>
-            </div>
-            <div class="wind-speed">
-                <p2>Wind: {{weather.wind}} km/h</p2>
-
-            </div>
-
-        </div>
-        <div class="weather-panel-show">
-            <div class="weather-temperature">
-                <p>{{ temp }}°C</p>
-            </div>
-
-            <div class="weather-icon">
-                <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="weather" />
-            </div>
-        </div>
-        <div class="weather-description">
-            <p>{{ weather.description }}</p>
-        </div>
-
     </div>
 
     <!-- Forecast for 5 Days -->
@@ -67,57 +71,68 @@
     <div class="forecast-weather">
 
         <div class="first-day">
-            <a href="/{{ weather.city }}/{{ day_forecast[0]['date'][5:10] }}">
+            <a href="/{{ weather.city }}/{{ day_forecast[0][0].date_txt[5:10] }}">
                 <div class="icon-forecast">
-                    <img src="http://openweathermap.org/img/w/{{ day_forecast[0]['icon'] }}.png" alt="weather" />
+                    <img src="http://openweathermap.org/img/w/{{ day_forecast[0][0]['icon'] }}.png" alt="weather" />
                 </div>
-                <p3>{{ day_forecast[0]['date'][5:10] }}/</p3>
-                <p3>{{ day_forecast[0].temp |round|int}}°C</p3>
+
+                <p3>{{ day_forecast[0][0].temp |round|int}}°C</p3>
                 <p3>{{ night_forecast[0].temp |round|int }}°C</p3>
+                <div>
+                    <p3>{{ day_forecast[1][0] }}</p3>
+                </div>
             </a>
         </div>
 
         <div class="second-day">
-            <a href="/{{ weather.city }}/{{ day_forecast[1]['date'][5:10] }}">
+            <a href="/{{ weather.city }}/{{ day_forecast[0][1].date_txt[5:10] }}">
                 <div class="icon-forecast">
-                    <img src="http://openweathermap.org/img/w/{{ day_forecast[1]['icon'] }}.png" alt="weather" />
+                    <img src="http://openweathermap.org/img/w/{{ day_forecast[0][1]['icon'] }}.png" alt="weather" />
                 </div>
-                <p3>{{ day_forecast[1]['date'][5:10] }}/</p3>
-                <p3>{{ day_forecast[1].temp |round|int }}°C</p3>
+                <p3>{{ day_forecast[0][1].temp |round|int }}°C</p3>
                 <p3>{{ night_forecast[1].temp |round|int }}°C</p3>
+                <div>
+                    <p3>{{ day_forecast[1][1] }}</p3>
+                </div>
             </a>
         </div>
 
         <div class="third-day">
-            <a href="/{{ weather.city }}/{{ day_forecast[2]['date'][5:10] }}">
+            <a href="/{{ weather.city }}/{{ day_forecast[0][2].date_txt[5:10] }}">
                 <div class="icon-forecast">
-                    <img src="http://openweathermap.org/img/w/{{ day_forecast[2]['icon'] }}.png" alt="weather" />
+                    <img src="http://openweathermap.org/img/w/{{ day_forecast[0][2]['icon'] }}.png" alt="weather" />
                 </div>
-                <p3>{{ day_forecast[2]['date'][5:10] }}/</p3>
-                <p3>{{ day_forecast[2].temp |round|int }}°C</p3>
+                <p3>{{ day_forecast[0][2].temp |round|int }}°C</p3>
                 <p3>{{ night_forecast[2].temp |round|int }}°C</p3>
+                <div>
+                    <p3>{{ day_forecast[1][2] }}</p3>
+                </div>
             </a>
         </div>
 
         <div class="fourth-day">
-            <a href="/{{ weather.city }}/{{ day_forecast[3]['date'][5:10] }}">
+            <a href="/{{ weather.city }}/{{ day_forecast[0][3].date_txt[5:10] }}">
                 <div class="icon-forecast">
-                    <img src="http://openweathermap.org/img/w/{{ day_forecast[3]['icon'] }}.png" alt="weather" />
+                    <img src="http://openweathermap.org/img/w/{{ day_forecast[0][3]['icon'] }}.png" alt="weather" />
                 </div>
-                <p3>{{ day_forecast[3]['date'][5:10] }}/</p3>
-                <p3>{{ day_forecast[3].temp |round|int }}°C</p3>
+                <p3>{{ day_forecast[0][3].temp |round|int }}°C</p3>
                 <p3>{{ night_forecast[3].temp |round|int }}°C</p3>
+                <div>
+                    <p3>{{ day_forecast[1][3] }}</p3>
+                </div>
             </a>
         </div>
 
         <div class="fifth-day">
-            <a href="/{{ weather.city }}/{{ day_forecast[4]['date'][5:10] }}">
+            <a href="/{{ weather.city }}/{{ day_forecast[0][4].date_txt[5:10] }}">
                 <div class="icon-forecast">
-                    <img src="http://openweathermap.org/img/w/{{ day_forecast[4]['icon'] }}.png" alt="weather" />
+                    <img src="http://openweathermap.org/img/w/{{ day_forecast[0][4]['icon'] }}.png" alt="weather" />
                 </div>
-                <p3>{{ day_forecast[4]['date'][5:10] }}/</p3>
-                <p3>{{ day_forecast[4].temp |round|int }}°C</p3>
+                <p3>{{ day_forecast[0][4].temp |round|int }}°C</p3>
                 <p3>{{ night_forecast[4].temp |round|int }}°C</p3>
+                <div>
+                    <p3>{{ day_forecast[1][4] }}</p3>
+                </div>
             </a>
         </div>
     </div>
