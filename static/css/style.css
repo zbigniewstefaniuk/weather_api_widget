@@ -1,7 +1,7 @@
 html {
   height: 100%;
   width: 100%;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,6 +64,14 @@ p2 {
 
 p3 {
   text-align: center;
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+}
+
+p3:hover {
+  color: var(--h2-text);
 }
 
 p4 {
@@ -183,6 +191,10 @@ a:link {
 #chart {
   max-width: 600px;
   margin: 35px auto;
+}
+
+.weekday {
+  margin: .5rem;
 }
 
 .input {

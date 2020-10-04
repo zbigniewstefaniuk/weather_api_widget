@@ -1,7 +1,7 @@
 html {
   height: 100%;
   width: 100%;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   display: flex;
   //flex-direction: column;
   box-sizing: border-box;
@@ -63,6 +63,13 @@ p2 {
 
 p3 {
   text-align: center;
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+  transition: color 150ms;
+}
+
+p3:hover {
+  color: var(--h2-text);
 }
 
 p4 {
@@ -71,6 +78,8 @@ p4 {
   font-size: 5.5em;
   color: var(--h2-text);
 }
+
+
 
 a:link {
   text-decoration: none;
@@ -176,7 +185,9 @@ a:link {
 }
 
 
-
+.weekday {
+  margin: .5rem;
+}
 
 // NICE INPUT
 .input {
