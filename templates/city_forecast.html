@@ -1,19 +1,22 @@
 {% extends 'layout.html' %}
 
 
+<!-- Title Block -->
 {% block title %}
-Forecast for {{ weather.city }}
+Forecast for {{ detail_forecast.city }}
 {% endblock title %}
 
+<!-- End of Title Block -->
 {% block body %}
 <div id="weather-app">
-    <h1>Check below current weather conditions for date: {{date}} and hourly forecast!</h1>
+    <h1>Current weather conditions for date: {{date}} and hourly forecast!</h1>
     <!-- User Input From  -->
     <div class="form-container">
 
         <form action="{{url_for('index')}}" id="form" method="post">
-            <p>Type any city below</p>
-
+            <div class="before-form">
+                <p5>Type any city below</p5>
+            </div>
             <div class="">
                 <input class="input" type="text" name="user_city" required autofocus>
             </div>
@@ -25,41 +28,51 @@ Forecast for {{ weather.city }}
     </div>
     <!-- End of Form  -->
     <div class="weather-main">
-        
-            <div class="city-weather">
-                <h2>{{ weather.city }}</h2>
-            </div>
 
-        <div class="city-info">
+        <div class="city-weather">
+            <h2>{{ detail_forecast.0.city }}</h2>
 
-            <div class="time">
-                <p2>{{ time }}</p2>
-            </div>
+            <div class="city-info">
 
-            <div class="humidity">
-                <p2>Humidity: {{ weather.humidity }}%</p2>
-            </div>
-            <div class="wind-speed">
-                <p2>Wind: {{weather.wind}} km/h</p2>
+                <div class="time">
+                    <p2>Date: {{ detail_forecast.0.date[0:10] }}</p2>
+                </div>
+
+                <div class="humidity">
+                    <p2>Humidity: {{ detail_forecast.0.humidity }}%</p2>
+                </div>
+                <div class="wind-speed">
+                    <p2>Wind: {{detail_forecast.0.wind |round|float }} km/h</p2>
+
+                </div>
+                <div>
+                    <p2>{{ detail_forecast.0.description }}</p2>
+                </div>
+
+                <div>
+                    <p2>Feels like: {{ detail_forecast.0.feels_like |round|int }} °C</p2>
+                </div>
+
+                <div>
+                    <p2>Pressure: {{ detail_forecast.0.pressure }} hPa</p2>
+                </div>
 
             </div>
-            <div>
-                <p2></p2>
-            </div>
+            <!-- Chart injected -->
+            <div id="chart"> </div>
+
 
         </div>
 
-    <div id="chart"> </div>
-
     </div>
-
-    
-</div>
 
 <!-- Chart display Script -->
 <script>
+    // definig variable myHours wchih take hours-forecast data from backend FLASK and converting to JSON format
     var myHours = {{ forecast_hours | tojson }};
-    var myTemperatures = {{ forecast_temperatures | tojson }};
+    // Below is the same thing as aboce but |safe - means that it takec clear unicode without any extra filters,
+    // without "|safe" there is error displaying degreas sign
+    var myTemperatures = {{ forecast_temperatures | safe }};
     var options = {
         series: [{
             name: "Temperature",
@@ -80,7 +93,7 @@ Forecast for {{ weather.city }}
         },
         title: {
             text: 'Temperature over hours',
-            align: 'left'
+            align: 'center'
         },
         grid: {
             row: {
@@ -96,4 +109,6 @@ Forecast for {{ weather.city }}
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
 </script>
+
+<!-- END of chart script -->
 {% endblock body %}
