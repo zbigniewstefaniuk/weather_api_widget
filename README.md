@@ -12,3 +12,9 @@ Example screenshot of weather application
   <img width="606" height="433" src="https://github.com/zbigniewstefaniuk/weather_api_widget/blob/master/static/images/weatherapp_chart.png">
 </p>
 Example screenshot of weather forecast application
+## Setup
+
+- Install dependencies
+- `pip install -r requirements.txt`
+- Run
+  - `python app.py`
