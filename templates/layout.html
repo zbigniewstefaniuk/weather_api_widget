@@ -7,9 +7,13 @@
   <meta name="author" content="Zbigniew Stefaniuk">
   <meta name="description" content="Stay positive with best Weather! Check 200 000 cities around the world! ">
   <meta property="og:title" content="The Weather app to you!">
+
+  <!-- CSS STYLES -->
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" />
+
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 
+  <!-- Chart external draw script -->
   <script>
     window.Promise ||
       document.write(
@@ -25,9 +29,8 @@
       )
   </script>
 
-
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+  <!-- END of Chart draw script -->
 
   <title>{% block title %}Weather App {% endblock %}</title>
 </head>
@@ -40,7 +43,7 @@
   </div>
   <!-- End of main content  -->
 
-  <!-- This is footer  -->
+  <!-- Footer  -->
   <div class="footer-main">
     <div class="footer-inside">
       <div class="me">
