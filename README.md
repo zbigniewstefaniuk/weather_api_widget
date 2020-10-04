@@ -7,3 +7,4 @@
 <p align="center">
   <img width="470" height="518" src="https://github.com/zbigniewstefaniuk/weather_api_widget/blob/master/static/images/weatherapp.png">
 </p>
+Example screenshot of flask_weather application
