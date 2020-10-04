@@ -11,7 +11,7 @@
   <img width="606" height="433" src="https://github.com/zbigniewstefaniuk/weather_api_widget/blob/master/static/images/weatherapp_chart.png">
 </p>
 Example screenshot of weather forecast application
-## Setup
+<h1>Setup</h1> 
 
 - Install dependencies
 - `pip install -r requirements.txt`
