@@ -30,4 +30,4 @@ Example screenshot of weather forecast application
   - `python app.py`
 
 <h1>Informations</h1>
-This app uses <a href="https://openweathermap.org/">openweathermap</a> API as source of data. You should definetly make account on thier site and use your own API_KEY, for now i uploaded mine but probably I will change and delete existing soon.
+This app uses <a href="https://openweathermap.org/">openweathermap</a> API as source of data. You should definetly make account on thier site (it's completly free) and use your own API_KEY, for now i uploaded mine but probably I will change and delete existing soon.
