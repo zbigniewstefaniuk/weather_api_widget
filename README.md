@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">Example screenshot of weather forecast application </p>
-<p align="center"> You can check this app <a href="https://weather-cloudy9-app.herokuapp.com/"> on this site </a>
+<p align="center"> You can check this app <a href="https://weather-cloudy9-app.herokuapp.com/"> on Heroku site </a>
 <h1 align="center">Setup</h1> 
 
 
